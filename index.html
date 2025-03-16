@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Petit Jeu video FORK</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H2O Quest - Quiz et Leaderboard Local</title>
+  <!-- Lien vers la feuille de style (si vous en utilisez une séparée) -->
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+</head>
+
+<body>
+  <!-- Écran de démarrage -->
+  <div id="startScreen">
+    <h1>H2O Quest</h1>
+    <p>
+      Bienvenue à l'aventure de la potabilisation du l'eau
+    </p>
+    <button id="startButton">Commencer le quiz</button>
+  </div>
+
+  <!-- Écran de saisie du nom -->
+  <div id="nameScreen" style="display: none;">
+    <h2>Entrez votre nom</h2>
+    <input type="text" id="playerName" placeholder="Entrez votre nom..." />
+    <br /><br />
+    <button id="confirmNameButton">Confirmer</button>
+  </div>
+
+  <!-- Écran de sélection du niveau -->
+  <div id="levelSelectionScreen" style="display: none;">
+    <h2 id="levelSelectionTitle">Choisissez votre niveau de quiz</h2>
+    <p>
+      Nous vous conseillons de consulter le sommaire pour vous familiariser avec la théorie.
+    </p>
+    <button id="beginnerButton">Débutant</button>
+    <button id="intermediateButton">Intermédiaire</button>
+    <button id="advancedButton">Confirmé</button>
+    <br />
+    <button id="globalLeaderboardButton">Leaderboard Global</button>
+    <button id="creditsButton">Credits</button>
+    <button id="summaryButton">Sommaire</button>
+  </div>
+
+  <!-- Écran Sommaire -->
+  <div id="summaryScreen" style="display: none;">
+    <h2>Sommaire détaillé de la potabilisation de l’eau</h2>
+    <ul>
+      <li id="section1">
+        <strong>1. Les principes fondamentaux du traitement de l’eau</strong>
+        <ul id="details1" style="display: none;">
+          <li id="subsection1-1">
+            <strong>1.1. Coagulation-Floculation</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La coagulation consiste à ajouter des agents (coagulants) qui neutralisent les charges électriques
+                des particules en suspension dans l’eau. Ce processus favorise leur regroupement en flocs, des agrégats plus gros,
+                qui pourront ensuite être éliminés plus facilement.
+              </p>
+              <p>
+                La floculation est une phase d’agitation douce qui permet à ces flocs de grossir et de s’unifier, facilitant ainsi leur
+                sédimentation ou leur filtration. Ces étapes sont essentielles pour réduire la turbidité et préparer l’eau pour les
+                traitements ultérieurs.
+              </p>
+            </div>
+          </li>
+          <li id="subsection1-2">
+            <strong>1.2. Sédimentation et Décantation</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La sédimentation repose sur le dépôt naturel des flocs par gravité. Au fur et à mesure que les flocs grossissent,
+                ils se déposent au fond d’un bassin.
+              </p>
+              <p>
+                La décantation, quant à elle, est une version optimisée de ce processus : grâce à des bassins spécialement conçus,
+                elle accélère la séparation entre l’eau clarifiée et les boues.
+              </p>
+            </div>
+          </li>
+          <li id="subsection1-3">
+            <strong>1.3. Filtration</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La filtration élimine les particules résiduelles restantes après la sédimentation. On utilise
+                des supports filtrants (sable, gravier ou charbon actif) qui retiennent ces particules fines, assurant une eau
+                plus pure et transparente.
+              </p>
+            </div>
+          </li>
+          <li id="subsection1-4">
+            <strong>1.4. Désinfection</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La désinfection intervient pour détruire ou inactiver les microorganismes pathogènes qui subsistent après
+                les étapes de clarification. Des procédés tels que la chloration, l'ozonation ou l'exposition aux UV sont utilisés
+                afin de garantir que l’eau soit sûre pour la consommation.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li id="section2">
+        <strong>2. Facteurs clés influençant l’efficacité du traitement</strong>
+        <ul id="details2" style="display: none;">
+          <li id="subsection2-1">
+            <strong>2.1. Qualité de l’eau brute</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La composition de l’eau brute (turbidité, présence de matières organiques et inorganiques, contaminants microbiens)
+                détermine le choix des traitements à appliquer. Une eau très contaminée demande un traitement plus intensif et des
+                dosages plus importants.
+              </p>
+            </div>
+          </li>
+          <li id="subsection2-2">
+            <strong>2.2. pH de l’eau</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                Le pH influence directement l’efficacité des réactions chimiques utilisées dans le traitement. Un pH trop acide
+                ou trop basique peut réduire l’efficacité des coagulants et désinfectants, nécessitant souvent un ajustement préalable.
+              </p>
+            </div>
+          </li>
+          <li id="subsection2-3">
+            <strong>2.3. Température de l’eau</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La température affecte la cinétique des réactions chimiques. Des températures élevées accélèrent les réactions,
+                tandis que des températures basses peuvent ralentir le processus de coagulation et de désinfection, impactant ainsi
+                la performance globale du traitement.
+              </p>
+            </div>
+          </li>
+          <li id="subsection2-4">
+            <strong>2.4. Dosage des produits chimiques</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                Un dosage précis est crucial. Un surdosage peut conduire à des sous-produits indésirables et à une altération du goût,
+                tandis qu’un sous-dosage compromet l’efficacité du traitement. Le dosage doit être adapté en fonction des caractéristiques
+                de l’eau brute.
+              </p>
+            </div>
+          </li>
+          <li id="subsection2-5">
+            <strong>2.5. Agitation</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                L’agitation assure une dispersion homogène des produits chimiques dans l’eau, favorisant une réaction uniforme.
+                Elle permet également d’éviter la formation de zones stagnantes, garantissant une efficacité optimale de l’ensemble du
+                processus de traitement.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li id="section3">
+        <strong>3. Réactions chimiques et processus complémentaires</strong>
+        <ul id="details3" style="display: none;">
+          <li id="subsection3-1">
+            <strong>3.1. Réaction de coagulation</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La coagulation implique l’ajout de coagulants qui neutralisent les charges électriques des particules.
+                Cela permet aux particules de s’agréger et de former des flocs, étape primordiale pour une séparation efficace.
+              </p>
+            </div>
+          </li>
+          <li id="subsection3-2">
+            <strong>3.2. Processus de désinfection</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                La désinfection élimine les agents pathogènes présents dans l’eau. Des techniques variées, telles que l'utilisation
+                de chlore, d'ozone ou de rayons UV, sont employées. Chacune offre des avantages spécifiques en termes de rapidité,
+                efficacité et impact sur la qualité organoleptique de l’eau.
+              </p>
+            </div>
+          </li>
+          <li id="subsection3-3">
+            <strong>3.3. Ajustement du pH</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                Ajuster le pH est essentiel pour optimiser les réactions chimiques. Un pH bien contrôlé garantit que les coagulants
+                et désinfectants agissent dans des conditions idéales, améliorant ainsi la performance globale du traitement.
+              </p>
+            </div>
+          </li>
+          <li id="subsection3-4">
+            <strong>3.4. Adsorption sur charbon actif</strong>
+            <div class="explanation" style="display: none;">
+              <p>
+                Le charbon actif est utilisé pour adsorber les contaminants organiques, pesticides et certains solvants. Ce procédé
+                complète les autres traitements en réduisant la charge en substances indésirables, contribuant ainsi à l'obtention
+                d'une eau de haute qualité.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <button id="closeSummaryButton">Fermer</button>
+  </div>
+
+  <!-- Écran Quiz -->
+  <div id="quizContainer" class="quiz-container" style="display: none;">
+    <div id="quizHeader">
+      <div id="timer">Temps restant : <span id="timeRemaining">12:00</span></div>
+      <div id="score">Score : <span id="scoreValue">0</span></div>
+    </div>
+    <div id="quizQuestion" class="quiz-question">
+      <!-- Les questions s'affichent dynamiquement -->
+    </div>
+    <button id="skipButton">Passer</button>
+  </div>
+
+  <!-- Écran Leaderboard -->
+  <div id="leaderboard" style="display: none;"></div>
+
+  <!-- Écran Credits -->
+  <div id="creditsScreen" style="display: none;">
+    <h2>Crédits</h2>
+    <p>Développé par Hélder Parruque &amp; Bastien Marguet</p>
+    <p>Tous droits réservés IUT LYON1© 2025.</p>
+    <button id="backFromCredits">Retour</button>
+  </div>
+
+  <!-- Le script principal en mode module -->
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

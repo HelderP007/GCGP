@@ -1,0 +1,361 @@
+/* Importer une police Google moderne */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* Styles globaux */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #0277bd;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(-45deg, #a0e9ff, #c6ffdd, #fbc2eb, #fef9d7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Blocs d'écran */
+#startScreen,
+#nameScreen,
+#levelSelectionScreen,
+#summaryScreen,
+.quiz-container,
+#leaderboard,
+#creditsScreen {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.8s ease forwards;
+  overflow: visible;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Écran d'accueil */
+#startScreen {
+  animation: fadeIn 0.8s ease forwards, floatBlock 4s ease-in-out infinite;
+}
+
+@keyframes floatBlock {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+#startScreen h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+#startScreen p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+#startScreen button {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bouton "Commencer" */
+#startButton {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #ff6f61;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#startButton:hover {
+  background-color: #ff3b2f;
+  transform: scale(1.07) rotate(-2deg);
+}
+
+/* Écran de saisie du nom */
+#nameScreen input {
+  padding: 10px;
+  font-size: 16px;
+  width: 60%;
+  max-width: 300px;
+  border: 2px solid #00acc1;
+  border-radius: 5px;
+  outline: none;
+}
+
+#confirmNameButton {
+  background-color: #00acc1;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#confirmNameButton:hover {
+  background-color: #007c91;
+  transform: scale(1.05);
+}
+
+/* Écran de sélection du niveau */
+#levelSelectionScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#levelSelectionTitle {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #007c91;
+}
+
+#levelSelectionScreen p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+  max-width: 1200px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#levelSelectionScreen .button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+#levelSelectionScreen .button-grid button {
+  background: linear-gradient(45deg, #00acc1, #007c91);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#levelSelectionScreen .button-grid button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(45deg, #00c3db, #0094a8);
+}
+
+/* Écran Sommaire */
+#summaryScreen h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+#summaryScreen ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#summaryScreen li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#summaryScreen li:hover {
+  cursor: pointer;
+  background-color: #c1d5e0;
+}
+
+.explanation {
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Écran Quiz */
+.quiz-container {
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#quizHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+#timer,
+#score {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.quiz-question p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Boutons de réponse */
+.answer-button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 12px;
+  font-weight: 500;
+  background-color: #00acc1;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Écran Leaderboard */
+#leaderboard {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#leaderboard h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #007c91;
+  text-align: center;
+}
+
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#leaderboard th,
+#leaderboard td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#leaderboard th {
+  background: linear-gradient(45deg, #007c91, #00acc1);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#leaderboard tr:hover td {
+  background-color: #e0f7fa;
+  transform: scale(1.02);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Écran Credits */
+#creditsScreen {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#creditsScreen h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #007c91;
+  text-align: center;
+}
+
+#creditsScreen p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Boutons génériques */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007c91;
+  transform: scale(1.05);
+}
+
+/* Styles pour la question d'association */
+.match-table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+  background: #fefefe;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.match-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.match-term {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+.match-select-cell {
+  text-align: center;
+}
+
+.match-select {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
